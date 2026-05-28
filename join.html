@@ -48,20 +48,20 @@
     <p class="who" id="who"></p>
 
     <label for="name">Ad ve soyad</label>
-    <input id="name" type="text" autocomplete="name" placeholder="Adın Soyadın" />
+    <input id="name" type="text" autocomplete="name" placeholder="Adınız Soyadınız" />
 
-    <label for="pw">Şifre belirle</label>
+    <label for="pw">Şifrenizi belirleyin</label>
     <input id="pw" type="password" autocomplete="new-password" placeholder="En az 8 karakter" />
 
-    <button id="submit" class="btn" type="button">Kaydol ve Katıl</button>
+    <button id="submit" class="btn" type="button">Kaydolun ve Katılın</button>
     <div id="err" class="err hidden"></div>
   </div>
 
   <!-- Başarılı -->
   <div id="done" class="card hidden">
-    <h2>Tamamdı! 🎉</h2>
-    <p class="who" id="doneText">Hesabın oluşturuldu ve ekibe katıldın.</p>
-    <p class="muted" style="text-align:left;margin:8px 0 14px">Şimdi son adım: KobiTools'u indirip aynı bilgilerle giriş yap.</p>
+    <h2>Tamamlandı 🎉</h2>
+    <p class="who" id="doneText">Hesabınız oluşturuldu ve ekibe katıldınız.</p>
+    <p class="muted" style="text-align:left;margin:8px 0 14px">Son adım: KobiTools'u indirip aynı bilgilerle giriş yapın.</p>
     <a id="storeBtn" class="btn btn-dark" style="display:none" href="#">KobiTools'u Microsoft Store'dan Yükle</a>
   </div>
 </div>
@@ -105,12 +105,12 @@ async function init() {
   await new Promise((r) => setTimeout(r, 250));
   const { data: { session } } = await supabase.auth.getSession();
   if (!session) {
-    err("Davet linki geçersiz veya süresi dolmuş. Lütfen yeni bir davet iste.");
+    err("Davet linki geçersiz veya süresi dolmuş. Lütfen yöneticinizden yeni bir davet talep edin.");
     show("form");
     $("submit").disabled = true;
     return;
   }
-  $("who").textContent = session.user?.email ? `${session.user.email} olarak kayıt oluyorsun.` : "";
+  $("who").textContent = session.user?.email ? `${session.user.email} olarak kayıt oluyorsunuz.` : "";
   show("form");
 }
 
@@ -118,7 +118,7 @@ $("submit").addEventListener("click", async () => {
   const name = $("name").value.trim();
   const pw = $("pw").value;
   $("err").classList.add("hidden");
-  if (!name) return err("Lütfen adını yaz.");
+  if (!name) return err("Lütfen adınızı yazın.");
   if (!pw || pw.length < 8) return err("Şifre en az 8 karakter olmalı.");
   if (!token) return err("Davet kodu URL'de bulunamadı.");
   $("submit").disabled = true;
@@ -134,7 +134,7 @@ $("submit").addEventListener("click", async () => {
   const { error: rpcErr } = await supabase.rpc("accept_invitation", { p_token: token, p_full_name: name });
   if (rpcErr) {
     $("submit").disabled = false;
-    return err("Davete katılamadın: " + rpcErr.message);
+    return err("Davete katılamadınız: " + rpcErr.message);
   }
   show("done");
 });
