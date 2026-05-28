@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>KobiTools — Davete Katıl</title>
+<style>
+  :root { --orange:#ea580c; --orange-dark:#c2410c; --bg:#fff7ed; --ink:#0f172a; --muted:#64748b; --line:#fed7aa; }
+  * { box-sizing: border-box; font-family: system-ui, "Segoe UI", Roboto, sans-serif; }
+  html, body { margin:0; padding:0; background:var(--bg); color:var(--ink); min-height:100vh; }
+  .wrap { max-width: 460px; margin: 0 auto; padding: 24px 16px 48px; }
+  .header { text-align:center; padding: 28px 20px 22px; color:#fff; border-radius: 0 0 22px 22px; background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%); }
+  .header img { width: 64px; height: 64px; border-radius: 14px; display:block; margin: 0 auto 10px; }
+  .header h1 { margin: 0; font-size: 22px; font-weight: 800; }
+  .header .sub { font-size: 13px; opacity: .92; margin-top: 4px; }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 26px 22px; margin-top: 18px; box-shadow: 0 8px 30px rgba(15,23,42,.08); }
+  h2 { margin: 0 0 8px; font-size: 18px; color: var(--orange-dark); }
+  .who { font-size: 14px; color: var(--muted); margin: 0 0 18px; }
+  label { display:block; font-size: 12px; font-weight: 600; color: #475569; margin: 12px 0 4px; }
+  input { width: 100%; padding: 10px 12px; border: 1px solid #fed7aa; border-radius: 10px; font-size: 14px; background: #fff; color: var(--ink); }
+  input:focus { outline: none; border-color: var(--orange); box-shadow: 0 0 0 3px rgba(234,88,12,.18); }
+  .btn { display:inline-block; width:100%; margin-top: 16px; padding: 12px 18px; border:none; border-radius: 12px; background: var(--orange); color:#fff; font-size: 15px; font-weight: 700; cursor: pointer; box-shadow: 0 6px 18px rgba(234,88,12,.35); }
+  .btn:disabled { opacity: .55; cursor: not-allowed; }
+  .btn-dark { background: #0f172a; box-shadow: 0 6px 18px rgba(15,23,42,.25); }
+  .err { background: #fef2f2; color: #b91c1c; border: 1px solid #fecaca; padding: 10px 12px; border-radius: 10px; font-size: 13px; margin-top: 14px; }
+  .ok { background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; padding: 10px 12px; border-radius: 10px; font-size: 13px; margin-top: 14px; }
+  .muted { color: var(--muted); font-size: 12px; margin: 14px 0 0; text-align: center; }
+  .hidden { display: none !important; }
+  a { color: var(--orange-dark); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <img id="logo" alt="KobiTools" />
+    <h1>KobiTools</h1>
+    <div class="sub">Hidroteknik</div>
+  </div>
+
+  <!-- Yükleniyor -->
+  <div id="loading" class="card">
+    <p class="muted">Yükleniyor…</p>
+  </div>
+
+  <!-- Form -->
+  <div id="form" class="card hidden">
+    <h2 id="welcome">Davete Katıl</h2>
+    <p class="who" id="who"></p>
+
+    <label for="name">Ad ve soyad</label>
+    <input id="name" type="text" autocomplete="name" placeholder="Adın Soyadın" />
+
+    <label for="pw">Şifre belirle</label>
+    <input id="pw" type="password" autocomplete="new-password" placeholder="En az 8 karakter" />
+
+    <button id="submit" class="btn" type="button">Kaydol ve Katıl</button>
+    <div id="err" class="err hidden"></div>
+  </div>
+
+  <!-- Başarılı -->
+  <div id="done" class="card hidden">
+    <h2>Tamamdı! 🎉</h2>
+    <p class="who" id="doneText">Hesabın oluşturuldu ve ekibe katıldın.</p>
+    <p class="muted" style="text-align:left;margin:8px 0 14px">Şimdi son adım: KobiTools'u indirip aynı bilgilerle giriş yap.</p>
+    <a id="storeBtn" class="btn btn-dark" style="display:none" href="#">KobiTools'u Microsoft Store'dan Yükle</a>
+  </div>
+</div>
+
+<script type="module">
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+
+// ↓↓↓ Bu iki değer derleme zamanı yerine doğrudan public; RLS güvenliği var.
+const SUPABASE_URL = "https://hcciasgyapfjtabydzys.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_TSX-iRL2PhcY3YJ_f_HCFA_QL8kxFYz";
+const STORE_URL = "https://apps.microsoft.com/detail/9PF6P6BFWVNC";
+const LOGO_URL = "https://raw.githubusercontent.com/alperalyaz/kobitools/main/desktop/public/kobi-brand.png";
+
+const supabase = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
+  auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: true }
+});
+
+const $ = (id) => document.getElementById(id);
+$("logo").src = LOGO_URL;
+if (STORE_URL) {
+  const sb = $("storeBtn");
+  sb.href = STORE_URL;
+  sb.style.display = "inline-block";
+}
+
+function show(id) {
+  ["loading","form","done"].forEach((x) => $(x).classList.toggle("hidden", x !== id));
+}
+function err(msg) {
+  const e = $("err");
+  e.textContent = msg;
+  e.classList.remove("hidden");
+}
+
+const params = new URLSearchParams(location.search);
+const token = params.get("t") || "";
+
+async function init() {
+  // Supabase magic-link callback'i hash'te token bırakır → detectSessionInUrl bunu işler.
+  // Birkaç ms sonra session hazır olur.
+  await new Promise((r) => setTimeout(r, 250));
+  const { data: { session } } = await supabase.auth.getSession();
+  if (!session) {
+    err("Davet linki geçersiz veya süresi dolmuş. Lütfen yeni bir davet iste.");
+    show("form");
+    $("submit").disabled = true;
+    return;
+  }
+  $("who").textContent = session.user?.email ? `${session.user.email} olarak kayıt oluyorsun.` : "";
+  show("form");
+}
+
+$("submit").addEventListener("click", async () => {
+  const name = $("name").value.trim();
+  const pw = $("pw").value;
+  $("err").classList.add("hidden");
+  if (!name) return err("Lütfen adını yaz.");
+  if (!pw || pw.length < 8) return err("Şifre en az 8 karakter olmalı.");
+  if (!token) return err("Davet kodu URL'de bulunamadı.");
+  $("submit").disabled = true;
+
+  // 1) Şifre belirle
+  const { error: pwErr } = await supabase.auth.updateUser({ password: pw, data: { full_name: name } });
+  if (pwErr) {
+    $("submit").disabled = false;
+    return err("Şifre belirlenemedi: " + pwErr.message);
+  }
+
+  // 2) Davete katıl
+  const { error: rpcErr } = await supabase.rpc("accept_invitation", { p_token: token, p_full_name: name });
+  if (rpcErr) {
+    $("submit").disabled = false;
+    return err("Davete katılamadın: " + rpcErr.message);
+  }
+  show("done");
+});
+
+init().catch((e) => err(String(e)));
+</script>
+</body>
+</html>
