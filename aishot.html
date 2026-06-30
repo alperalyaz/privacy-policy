@@ -45,12 +45,12 @@
   <section class="doc" id="tr">
     <h1>Gizlilik Politikası</h1>
     <div class="meta">
-      Son güncelleme: 2026 · Geliştirici: <strong>Hidroteknik A.Ş.</strong> (Denizli, Türkiye)<br />
+      Son güncelleme: Temmuz 2026 · Geliştirici: <strong>Hidroteknik A.Ş.</strong> (Denizli, Türkiye)<br />
       İletişim: <a href="mailto:aishot@hidroteknik.com.tr">aishot@hidroteknik.com.tr</a> · +90 258 251 40 60<br />
       Adres: Sümer 2296 No:21 Alyaz İş Merkezi No:1, 20175 Merkezefendi / Denizli, Türkiye
     </div>
 
-    <p>AIShot, Windows için çalışan bir masaüstü ekran asistanıdır. Bu politika, uygulamanın hangi verileri işlediğini ve işlemediğini açıklar. Özet: <strong>AIShot sizin adınıza hesap açmaz, kişisel veri toplamaz ve verilerinizi kendi sunucularımıza göndermez.</strong></p>
+    <p>AIShot, Windows için çalışan bir masaüstü ekran asistanıdır. Yapay zekâ ile içerik (metin yanıtlar) üreten, üretken yapay zekâ (generative AI) özellikleri içerir. Bu politika, uygulamanın hangi verileri işlediğini ve işlemediğini açıklar. Özet: <strong>AIShot sizin adınıza hesap açmaz, kişisel veri toplamaz ve verilerinizi kendi sunucularımıza göndermez.</strong></p>
 
     <h2>1. Topladığımız veriler</h2>
     <p>AIShot <strong>hiçbir kişisel veriyi toplamaz, saklamaz veya bize iletmez.</strong> Uygulamada:</p>
@@ -64,24 +64,26 @@
     <p>Tüm veriler <strong>yalnızca sizin bilgisayarınızda</strong> kalır:</p>
     <ul>
       <li><strong>Sohbet oturumları ve ekran görüntüleri:</strong> Cihazınızda yerel depoda (localStorage) tutulur. İstediğiniz zaman uygulama içinden silebilirsiniz.</li>
-      <li><strong>Yapay zeka API anahtarınız:</strong> Cihazınızda işletim sistemi düzeyinde <strong>şifrelenerek</strong> (Windows DPAPI) saklanır. Düz metin yazılmaz, arayüzde tekrar gösterilmez ve <strong>bize hiçbir zaman iletilmez</strong>.</li>
+      <li><strong>Yapay zekâ API anahtarınız:</strong> Cihazınızda işletim sistemi düzeyinde <strong>şifrelenerek</strong> (Windows DPAPI) saklanır. Düz metin yazılmaz, arayüzde tekrar gösterilmez ve <strong>bize hiçbir zaman iletilmez</strong>.</li>
+      <li><strong>Günlük kullanım sayacı:</strong> Maliyet koruması için yapılan günlük çağrı sayısı yalnızca cihazınızda tutulur.</li>
     </ul>
 
     <h2>3. Üçüncü taraf hizmetleri</h2>
     <p>Bazı işlevler internet gerektirir ve verileri <strong>doğrudan sizin yetkilendirdiğiniz</strong> üçüncü taraf hizmetlerine gönderir. Bu veriler <strong>bizim sunucularımızdan geçmez.</strong></p>
     <table>
       <tr><th>İşlev</th><th>Gönderilen veri</th><th>Alıcı</th></tr>
-      <tr><td>Yapay zeka yorumu/sohbeti</td><td>Ekrandan OCR ile çıkarılan metin ve yazdığınız mesajlar</td><td>Ayarlardan seçtiğiniz sağlayıcı (Groq, OpenRouter, DeepSeek, OpenAI vb.)</td></tr>
+      <tr><td>Yapay zekâ yorumu/sohbeti</td><td>Ekrandan OCR ile çıkarılan metin, yazdığınız mesajlar ve <strong>görsel anlama açıkken (ör. Gemini, OpenAI) ekran görüntüsünün kendisi</strong></td><td>Ayarlardan seçtiğiniz sağlayıcı (Google Gemini, DeepSeek, OpenAI, Groq, OpenRouter veya OpenAI-uyumlu bir API)</td></tr>
+      <tr><td>Belge ekleme</td><td>Eklediğiniz PDF/Excel/Word/metin/görsel dosyalarından çıkarılan içerik. <strong>Taranmış (metinsiz) PDF'ler, metne dönüştürülmek üzere doğrudan Google Gemini'ye gönderilir.</strong></td><td>Seçtiğiniz yapay zekâ sağlayıcısı / taranmış PDF için Google Gemini</td></tr>
       <tr><td>Sesli okuma (TTS)</td><td>Sesli okunacak metin</td><td>Microsoft (Edge neural ses hizmeti)</td></tr>
       <tr><td>Metin tanıma (OCR)</td><td>—</td><td>Cihazınızda yereldir; ilk kurulumda yalnızca dil verisi indirilir</td></tr>
     </table>
-    <div class="note"><strong>Önemli:</strong> Ekran görüntüsünün kendisi yapay zekaya gönderilmez; yalnızca görüntüden yerel olarak çıkarılan metin gönderilir. Seçtiğiniz sağlayıcının kendi gizlilik politikası, ona gönderdiğiniz veriler için geçerlidir.</div>
+    <div class="note"><strong>Önemli:</strong> Görsel anlama (vision) özelliğini destekleyen bir model seçtiğinizde (ör. Google Gemini, OpenAI), seçtiğiniz ekran bölgesinin <strong>görüntüsü de</strong> o sağlayıcıya gönderilir. Yalnızca metin işleyen bir sağlayıcı (ör. DeepSeek) seçerseniz görüntü gönderilmez; yalnızca OCR ile çıkarılan metin gönderilir. Hangi veriyi gönderirseniz gönderin, bu veri <strong>sizin kendi API anahtarınızla, sizin seçtiğiniz sağlayıcıya</strong> gider ve o sağlayıcının gizlilik politikasına tabidir. Verileriniz Hidroteknik'in sunucularına gönderilmez veya saklanmaz.</div>
 
     <h2>4. Çocukların gizliliği</h2>
     <p>AIShot 13 yaş altı çocuklara yönelik değildir ve bilerek çocuklardan veri toplamaz.</p>
 
     <h2>5. Veri güvenliği</h2>
-    <p>API anahtarınız işletim sistemi şifrelemesiyle korunur. Hassas/kişisel bilgi içeren ekranları taramamaya özen gösterin; çünkü çıkarılan metin seçtiğiniz sağlayıcıya gönderilir.</p>
+    <p>API anahtarınız işletim sistemi şifrelemesiyle korunur. Hassas/kişisel bilgi içeren ekranları taramamaya özen gösterin; çünkü çıkarılan metin ve (görsel anlama açıksa) ekran görüntüsü seçtiğiniz sağlayıcıya gönderilir. Hassas ekranlarda görsel anlamayı kapatıp yalnızca metin işleyen bir sağlayıcı kullanabilirsiniz.</p>
 
     <h2>6. Değişiklikler</h2>
     <p>Bu politika güncellenebilir. Güncel sürüm her zaman bu adreste yayınlanır ve uygulama içindeki <strong>Hakkımızda</strong> bölümünden erişilebilir.</p>
@@ -94,12 +96,12 @@
   <section class="doc" id="en">
     <h1>Privacy Policy</h1>
     <div class="meta">
-      Last updated: 2026 · Developer: <strong>Hidroteknik A.Ş.</strong> (Denizli, Türkiye)<br />
+      Last updated: July 2026 · Developer: <strong>Hidroteknik A.Ş.</strong> (Denizli, Türkiye)<br />
       Contact: <a href="mailto:aishot@hidroteknik.com.tr">aishot@hidroteknik.com.tr</a> · +90 258 251 40 60<br />
       Address: Sümer 2296 No:21 Alyaz İş Merkezi No:1, 20175 Merkezefendi / Denizli, Türkiye
     </div>
 
-    <p>AIShot is a desktop screen assistant for Windows. This policy explains what data the app does and does not process. In short: <strong>AIShot does not create an account for you, does not collect personal data, and does not send your data to our servers.</strong></p>
+    <p>AIShot is a desktop screen assistant for Windows. It includes generative AI features that use artificial intelligence to create content (text responses). This policy explains what data the app does and does not process. In short: <strong>AIShot does not create an account for you, does not collect personal data, and does not send your data to our servers.</strong></p>
 
     <h2>1. Data we collect</h2>
     <p>AIShot <strong>does not collect, store or transmit any personal data to us.</strong> The app has:</p>
@@ -114,23 +116,25 @@
     <ul>
       <li><strong>Chat sessions and screenshots:</strong> Stored locally on your device (localStorage). You can delete them anytime from within the app.</li>
       <li><strong>Your AI API key:</strong> Stored <strong>encrypted</strong> at the OS level (Windows DPAPI) on your device. It is never written in plain text, never shown again in the UI, and <strong>never transmitted to us</strong>.</li>
+      <li><strong>Daily usage counter:</strong> The number of daily calls (for cost protection) is kept only on your device.</li>
     </ul>
 
     <h2>3. Third-party services</h2>
     <p>Some features require the internet and send data <strong>directly to the third-party services you authorize</strong>. This data does <strong>not</strong> pass through our servers.</p>
     <table>
       <tr><th>Feature</th><th>Data sent</th><th>Recipient</th></tr>
-      <tr><td>AI interpretation/chat</td><td>Text extracted from the screen via OCR and the messages you type</td><td>The provider you choose in Settings (Groq, OpenRouter, DeepSeek, OpenAI, etc.)</td></tr>
+      <tr><td>AI interpretation/chat</td><td>Text extracted from the screen via OCR, the messages you type, and <strong>when visual understanding is on (e.g. Gemini, OpenAI) the screenshot image itself</strong></td><td>The provider you choose in Settings (Google Gemini, DeepSeek, OpenAI, Groq, OpenRouter, or an OpenAI-compatible API)</td></tr>
+      <tr><td>Document attachment</td><td>Content extracted from PDF/Excel/Word/text/image files you attach. <strong>Scanned (text-less) PDFs are sent directly to Google Gemini to be converted to text.</strong></td><td>Your chosen AI provider / Google Gemini for scanned PDFs</td></tr>
       <tr><td>Text-to-speech (TTS)</td><td>The text to be read aloud</td><td>Microsoft (Edge neural voice service)</td></tr>
       <tr><td>Text recognition (OCR)</td><td>—</td><td>Local on your device; only language data is downloaded on first run</td></tr>
     </table>
-    <div class="note"><strong>Important:</strong> The screenshot itself is not sent to the AI; only the text locally extracted from it is sent. The privacy policy of the provider you choose applies to the data you send to it.</div>
+    <div class="note"><strong>Important:</strong> When you select a model that supports visual understanding (vision), e.g. Google Gemini or OpenAI, the <strong>image</strong> of the screen region you selected is also sent to that provider. If you choose a text-only provider (e.g. DeepSeek), no image is sent — only the text extracted via OCR. Whatever data is sent goes to <strong>the provider you chose, using your own API key</strong>, and is subject to that provider's privacy policy. Your data is never sent to or stored on Hidroteknik's servers.</div>
 
     <h2>4. Children's privacy</h2>
     <p>AIShot is not directed at children under 13 and does not knowingly collect data from children.</p>
 
     <h2>5. Data security</h2>
-    <p>Your API key is protected by OS-level encryption. Avoid capturing screens containing sensitive/personal information, as the extracted text will be sent to your chosen provider.</p>
+    <p>Your API key is protected by OS-level encryption. Avoid capturing screens containing sensitive/personal information, as the extracted text and (if visual understanding is on) the screenshot will be sent to your chosen provider. For sensitive screens you can turn off visual understanding and use a text-only provider.</p>
 
     <h2>6. Changes</h2>
     <p>This policy may be updated. The current version is always published at this address and is accessible from the <strong>About</strong> section in the app.</p>
