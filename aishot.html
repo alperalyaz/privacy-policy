@@ -45,50 +45,69 @@
   <section class="doc" id="tr">
     <h1>Gizlilik Politikası</h1>
     <div class="meta">
-      Son güncelleme: Temmuz 2026 · Geliştirici: <strong>Hidroteknik A.Ş.</strong> (Denizli, Türkiye)<br />
+      Son güncelleme: Eylül 2026 · Geliştirici: <strong>Hidroteknik A.Ş.</strong> (Denizli, Türkiye)<br />
       İletişim: <a href="mailto:aishot@hidroteknik.com.tr">aishot@hidroteknik.com.tr</a> · +90 258 251 40 60<br />
       Adres: Sümer 2296 No:21 Alyaz İş Merkezi No:1, 20175 Merkezefendi / Denizli, Türkiye
     </div>
 
-    <p>AIShot, Windows için çalışan bir masaüstü ekran asistanıdır. Yapay zekâ ile içerik (metin yanıtlar) üreten, üretken yapay zekâ (generative AI) özellikleri içerir. Bu politika, uygulamanın hangi verileri işlediğini ve işlemediğini açıklar. Özet: <strong>AIShot sizin adınıza hesap açmaz, kişisel veri toplamaz ve verilerinizi kendi sunucularımıza göndermez.</strong></p>
+    <p>AIShot, Windows için çalışan bir masaüstü ekran asistanıdır. Yapay zekâ ile içerik (metin yanıtlar) üreten, üretken yapay zekâ (generative AI) özellikleri içerir. Bu politika, uygulamanın hangi verileri işlediğini ve işlemediğini açıklar.</p>
+    <p><strong>Özet:</strong> AIShot sizin adınıza hesap açmaz, kişisel veri toplamaz, reklam veya izleyici içermez. Uygulamayı <strong>kendi API anahtarınızla</strong> kullandığınızda verileriniz doğrudan seçtiğiniz sağlayıcıya gider; bizim sunucularımıza hiç uğramaz. Anahtarsız kullanılan <strong>ücretsiz deneme modunda</strong> ise istek bizim ağ geçidimizden geçer — <strong>içeriği orada saklanmaz</strong>, yalnız bir kota sayacı tutulur. Ayrıntısı 3. bölümdedir.</p>
 
     <h2>1. Topladığımız veriler</h2>
-    <p>AIShot <strong>hiçbir kişisel veriyi toplamaz, saklamaz veya bize iletmez.</strong> Uygulamada:</p>
+    <p>AIShot'ta:</p>
     <ul>
-      <li>Hesap/üyelik sistemi <strong>yoktur</strong>.</li>
+      <li>Hesap/üyelik sistemi <strong>yoktur</strong>. E-posta, isim veya iletişim bilginizi hiçbir zaman istemeyiz.</li>
       <li>Telemetri, analitik veya kullanım takibi <strong>yoktur</strong>.</li>
       <li>Reklam veya üçüncü taraf izleyici <strong>yoktur</strong>.</li>
+      <li><strong>Tek istisna:</strong> ücretsiz deneme modunun kötüye kullanımını engelleyen günlük kota sayacı. Ne saydığı ve neyi saklamadığı 3. bölümde tek tek yazılıdır.</li>
     </ul>
 
     <h2>2. Verilerin nerede tutulduğu</h2>
-    <p>Tüm veriler <strong>yalnızca sizin bilgisayarınızda</strong> kalır:</p>
+    <p>Sohbetleriniz ve anahtarınız <strong>yalnızca sizin bilgisayarınızda</strong> kalır:</p>
     <ul>
-      <li><strong>Sohbet oturumları ve ekran görüntüleri:</strong> Cihazınızda yerel depoda (localStorage) tutulur. İstediğiniz zaman uygulama içinden silebilirsiniz.</li>
+      <li><strong>Sohbet oturumları ve ekran görüntüleri:</strong> Cihazınızda yerel depoda (localStorage) tutulur. İstediğiniz zaman uygulama içinden silebilirsiniz. Bu kayıtların bir kopyası bizde yoktur.</li>
       <li><strong>Yapay zekâ API anahtarınız:</strong> Cihazınızda işletim sistemi düzeyinde <strong>şifrelenerek</strong> (Windows DPAPI) saklanır. Düz metin yazılmaz, arayüzde tekrar gösterilmez ve <strong>bize hiçbir zaman iletilmez</strong>.</li>
-      <li><strong>Günlük kullanım sayacı:</strong> Maliyet koruması için yapılan günlük çağrı sayısı yalnızca cihazınızda tutulur.</li>
+      <li><strong>Günlük kullanım sayacı:</strong> Kendi anahtarınızla kullanırken bu sayaç yalnızca cihazınızda tutulur. Ücretsiz deneme modunda kota, sayılabilmesi için sunucu tarafında tutulur (3. bölüm).</li>
     </ul>
 
-    <h2>3. Üçüncü taraf hizmetleri</h2>
-    <p>Bazı işlevler internet gerektirir ve verileri <strong>doğrudan sizin yetkilendirdiğiniz</strong> üçüncü taraf hizmetlerine gönderir. Bu veriler <strong>bizim sunucularımızdan geçmez.</strong></p>
+    <h2>3. Ücretsiz deneme modu</h2>
+    <p>API anahtarı girmeden de uygulamayı deneyebilmeniz için, anahtarsız kullanımda <strong>günlük sınırlı sayıda</strong> ücretsiz sorgu hakkı verilir. Bu modda istek doğrudan bir yapay zekâ sağlayıcısına gitmez; önce <strong>Hidroteknik'in işlettiği bir ağ geçidinden</strong> (Cloudflare Workers altyapısı) geçer, oradan <strong>Google Gemini</strong>'ye iletilir ve cevap size döner.</p>
+    <p>Bu, ücretsiz denemenin <strong>maliyetini biz karşıladığımız</strong> ve kotanın sayılabilmesi gerektiği için böyledir.</p>
+    <div class="note"><strong>Deneme modunda ağ geçidimizden geçen veri:</strong> yazdığınız mesajlar, ekrandan çıkarılan metin, eklediğiniz belgelerin içeriği ve — görsel anlama açıkken — <strong>ekran görüntüsünün kendisi</strong>. Bu veriler ağ geçidinde <strong>kaydedilmez, saklanmaz ve kimse tarafından okunmaz</strong>; yalnızca Google Gemini'ye iletilip cevabı size ulaştırmak için kullanılır. Gemini tarafında <strong>ücretli (paid) katman</strong> kullanılır; Google'ın API koşullarına göre ücretli katmandaki verileriniz <strong>model eğitiminde kullanılmaz</strong> ve insan incelemesine açılmaz.</div>
+    <p>Ağ geçidinde <strong>saklanan tek şey</strong> şu sayaçlardır:</p>
+    <table>
+      <tr><th>Saklanan kayıt</th><th>İçeriği</th><th>Amacı</th></tr>
+      <tr><td>Kurulum sayacı</td><td>Kurulum kimliğinizin <strong>SHA-256 özeti</strong> + tarih + o günkü sorgu sayısı</td><td>Kurulum başına günlük hakkı saymak</td></tr>
+      <tr><td>IP sayacı</td><td>IP adresinizin <strong>SHA-256 özeti</strong> + tarih + sayı</td><td>Programı silip tekrar kurarak sınırsız hak üretmeyi engellemek</td></tr>
+      <tr><td>Genel sayaç</td><td>Tarih + o gün tüm kullanıcılara verilen toplam sorgu sayısı</td><td>Günlük maliyet tavanı</td></tr>
+      <tr><td>Premium ilgisi</td><td>Kurulum kimliğinizin SHA-256 özeti + tarih — <strong>yalnız siz düğmeye basarsanız</strong></td><td>"Ücretli sürüme ilgi var mı" sorusunu saymak</td></tr>
+    </table>
+    <p><strong>Saklanmayanlar:</strong> mesajlarınız, ekran görüntüleriniz, çıkarılan metin, belgeleriniz, <strong>ham IP adresiniz</strong>, ham kurulum kimliğiniz, e-posta/isim/iletişim bilginiz. Bunların hiçbiri veritabanımızda yoktur.</p>
+    <p><strong>Kurulum kimliği</strong>, uygulama ilk çalıştığında cihazınızda üretilen <strong>rastgele bir numaradır</strong>; donanımınızdan, Windows veya Microsoft hesabınızdan ya da kişisel bilgilerinizden türetilmez ve size geri bağlanamaz.</p>
+    <p><strong>Kendi anahtarınızı girdiğiniz anda ağ geçidimiz devreden çıkar</strong> — istekler doğrudan sizin seçtiğiniz sağlayıcıya gider ve yukarıdaki sayaçların hiçbiri artmaz.</p>
+    <p><strong>"Premium ilgimi çeker" düğmesi hiçbir şey satın almaz</strong>, sizden ödeme veya iletişim bilgisi istemez ve size geri dönüş yapılmasını sağlamaz. Tek yaptığı, yukarıdaki sayaca bir satır eklemektir.</p>
+
+    <h2>4. Üçüncü taraf hizmetleri</h2>
+    <p>Bazı işlevler internet gerektirir ve verileri üçüncü taraf hizmetlerine gönderir. <strong>Kendi anahtarınızı kullanırken bu veriler doğrudan sizin yetkilendirdiğiniz sağlayıcıya gider ve bizim sunucularımızdan geçmez.</strong> Ücretsiz deneme modunda yapay zekâ isteği ağ geçidimizden geçer (3. bölüm).</p>
     <table>
       <tr><th>İşlev</th><th>Gönderilen veri</th><th>Alıcı</th></tr>
-      <tr><td>Yapay zekâ yorumu/sohbeti</td><td>Ekrandan OCR ile çıkarılan metin, yazdığınız mesajlar ve <strong>görsel anlama açıkken (ör. Gemini, OpenAI) ekran görüntüsünün kendisi</strong></td><td>Ayarlardan seçtiğiniz sağlayıcı (Google Gemini, DeepSeek, OpenAI, Groq, OpenRouter veya OpenAI-uyumlu bir API)</td></tr>
+      <tr><td>Yapay zekâ yorumu/sohbeti</td><td>Ekrandan OCR ile çıkarılan metin, yazdığınız mesajlar ve <strong>görsel anlama açıkken (ör. Gemini, OpenAI) ekran görüntüsünün kendisi</strong></td><td>Ayarlardan seçtiğiniz sağlayıcı (Google Gemini, DeepSeek, OpenAI, Groq, OpenRouter veya OpenAI-uyumlu bir API). Deneme modunda: Hidroteknik ağ geçidi → Google Gemini.</td></tr>
       <tr><td>Belge ekleme</td><td>Eklediğiniz PDF/Excel/Word/metin/görsel dosyalarından çıkarılan içerik. <strong>Taranmış (metinsiz) PDF'ler, metne dönüştürülmek üzere doğrudan Google Gemini'ye gönderilir.</strong></td><td>Seçtiğiniz yapay zekâ sağlayıcısı / taranmış PDF için Google Gemini</td></tr>
       <tr><td>Sesli okuma (TTS)</td><td>Sesli okunacak metin</td><td>Microsoft (Edge neural ses hizmeti)</td></tr>
       <tr><td>Metin tanıma (OCR)</td><td>—</td><td>Cihazınızda yereldir; ilk kurulumda yalnızca dil verisi indirilir</td></tr>
     </table>
-    <div class="note"><strong>Önemli:</strong> Görsel anlama (vision) özelliğini destekleyen bir model seçtiğinizde (ör. Google Gemini, OpenAI), seçtiğiniz ekran bölgesinin <strong>görüntüsü de</strong> o sağlayıcıya gönderilir. Yalnızca metin işleyen bir sağlayıcı (ör. DeepSeek) seçerseniz görüntü gönderilmez; yalnızca OCR ile çıkarılan metin gönderilir. Hangi veriyi gönderirseniz gönderin, bu veri <strong>sizin kendi API anahtarınızla, sizin seçtiğiniz sağlayıcıya</strong> gider ve o sağlayıcının gizlilik politikasına tabidir. Verileriniz Hidroteknik'in sunucularına gönderilmez veya saklanmaz.</div>
+    <div class="note"><strong>Önemli:</strong> Görsel anlama (vision) özelliğini destekleyen bir model kullanıldığında (ör. Google Gemini, OpenAI — ücretsiz deneme modu dâhil), seçtiğiniz ekran bölgesinin <strong>görüntüsü de</strong> sağlayıcıya gönderilir. Yalnızca metin işleyen bir sağlayıcı (ör. DeepSeek) seçerseniz görüntü gönderilmez; yalnızca OCR ile çıkarılan metin gönderilir. Hangi veriyi gönderirseniz gönderin, bu veri ilgili sağlayıcının gizlilik politikasına tabidir.</div>
 
-    <h2>4. Çocukların gizliliği</h2>
+    <h2>5. Çocukların gizliliği</h2>
     <p>AIShot 13 yaş altı çocuklara yönelik değildir ve bilerek çocuklardan veri toplamaz.</p>
 
-    <h2>5. Veri güvenliği</h2>
-    <p>API anahtarınız işletim sistemi şifrelemesiyle korunur. Hassas/kişisel bilgi içeren ekranları taramamaya özen gösterin; çünkü çıkarılan metin ve (görsel anlama açıksa) ekran görüntüsü seçtiğiniz sağlayıcıya gönderilir. Hassas ekranlarda görsel anlamayı kapatıp yalnızca metin işleyen bir sağlayıcı kullanabilirsiniz.</p>
+    <h2>6. Veri güvenliği</h2>
+    <p>API anahtarınız işletim sistemi şifrelemesiyle korunur. Tüm ağ trafiği şifreli (HTTPS) taşınır. <strong>Hassas/kişisel bilgi içeren ekranları taramamaya özen gösterin</strong>; çünkü çıkarılan metin ve (görsel anlama açıksa) ekran görüntüsü yapay zekâ sağlayıcısına gönderilir. Hassas ekranlarda görsel anlamayı kapatıp yalnızca metin işleyen bir sağlayıcı kullanabilirsiniz.</p>
 
-    <h2>6. Değişiklikler</h2>
+    <h2>7. Değişiklikler</h2>
     <p>Bu politika güncellenebilir. Güncel sürüm her zaman bu adreste yayınlanır ve uygulama içindeki <strong>Hakkımızda</strong> bölümünden erişilebilir.</p>
 
-    <h2>7. İletişim</h2>
+    <h2>8. İletişim</h2>
     <p>Sorularınız için: <a href="mailto:aishot@hidroteknik.com.tr">aishot@hidroteknik.com.tr</a></p>
   </section>
 
@@ -96,50 +115,69 @@
   <section class="doc" id="en">
     <h1>Privacy Policy</h1>
     <div class="meta">
-      Last updated: July 2026 · Developer: <strong>Hidroteknik A.Ş.</strong> (Denizli, Türkiye)<br />
+      Last updated: September 2026 · Developer: <strong>Hidroteknik A.Ş.</strong> (Denizli, Türkiye)<br />
       Contact: <a href="mailto:aishot@hidroteknik.com.tr">aishot@hidroteknik.com.tr</a> · +90 258 251 40 60<br />
       Address: Sümer 2296 No:21 Alyaz İş Merkezi No:1, 20175 Merkezefendi / Denizli, Türkiye
     </div>
 
-    <p>AIShot is a desktop screen assistant for Windows. It includes generative AI features that use artificial intelligence to create content (text responses). This policy explains what data the app does and does not process. In short: <strong>AIShot does not create an account for you, does not collect personal data, and does not send your data to our servers.</strong></p>
+    <p>AIShot is a desktop screen assistant for Windows. It includes generative AI features that use artificial intelligence to create content (text responses). This policy explains what data the app does and does not process.</p>
+    <p><strong>In short:</strong> AIShot does not create an account for you, does not collect personal data, and contains no ads or trackers. When you use the app <strong>with your own API key</strong>, your data goes directly to the provider you chose and never touches our servers. In the keyless <strong>free trial mode</strong>, the request passes through our gateway — <strong>its content is not stored there</strong>, only a quota counter is kept. Details are in section 3.</p>
 
     <h2>1. Data we collect</h2>
-    <p>AIShot <strong>does not collect, store or transmit any personal data to us.</strong> The app has:</p>
+    <p>The app has:</p>
     <ul>
-      <li><strong>No</strong> account/sign-up system.</li>
+      <li><strong>No</strong> account/sign-up system. We never ask for your email, name or contact details.</li>
       <li><strong>No</strong> telemetry, analytics or usage tracking.</li>
       <li><strong>No</strong> ads or third-party trackers.</li>
+      <li><strong>One exception:</strong> the daily quota counter that prevents abuse of the free trial. Exactly what it counts — and what it does not store — is listed in section 3.</li>
     </ul>
 
     <h2>2. Where data is stored</h2>
-    <p>All data stays <strong>only on your computer</strong>:</p>
+    <p>Your chats and your key stay <strong>only on your computer</strong>:</p>
     <ul>
-      <li><strong>Chat sessions and screenshots:</strong> Stored locally on your device (localStorage). You can delete them anytime from within the app.</li>
+      <li><strong>Chat sessions and screenshots:</strong> Stored locally on your device (localStorage). You can delete them anytime from within the app. We hold no copy of them.</li>
       <li><strong>Your AI API key:</strong> Stored <strong>encrypted</strong> at the OS level (Windows DPAPI) on your device. It is never written in plain text, never shown again in the UI, and <strong>never transmitted to us</strong>.</li>
-      <li><strong>Daily usage counter:</strong> The number of daily calls (for cost protection) is kept only on your device.</li>
+      <li><strong>Daily usage counter:</strong> When you use your own key, this counter is kept only on your device. In free trial mode the quota is kept server-side so that it can be counted (section 3).</li>
     </ul>
 
-    <h2>3. Third-party services</h2>
-    <p>Some features require the internet and send data <strong>directly to the third-party services you authorize</strong>. This data does <strong>not</strong> pass through our servers.</p>
+    <h2>3. Free trial mode</h2>
+    <p>So that you can try the app without obtaining an API key, keyless use is granted a <strong>limited number of free queries per day</strong>. In this mode the request does not go directly to an AI provider: it first passes through a <strong>gateway operated by Hidroteknik</strong> (on Cloudflare Workers infrastructure), is forwarded from there to <strong>Google Gemini</strong>, and the answer is returned to you.</p>
+    <p>This is necessary because <strong>we pay for the free trial</strong> and the quota has to be counted somewhere.</p>
+    <div class="note"><strong>Data that passes through our gateway in trial mode:</strong> the messages you type, text extracted from the screen, the content of documents you attach, and — when visual understanding is on — <strong>the screenshot image itself</strong>. This data is <strong>not logged, not stored, and not read by anyone</strong> at the gateway; it is only relayed to Google Gemini in order to return an answer to you. On the Gemini side the <strong>paid tier</strong> is used; under Google's API terms, data on the paid tier is <strong>not used to train models</strong> and is not exposed to human review.</div>
+    <p>The <strong>only things stored</strong> at the gateway are these counters:</p>
+    <table>
+      <tr><th>Stored record</th><th>Contents</th><th>Purpose</th></tr>
+      <tr><td>Installation counter</td><td><strong>SHA-256 hash</strong> of your installation identifier + date + that day's query count</td><td>Counting the daily allowance per installation</td></tr>
+      <tr><td>IP counter</td><td><strong>SHA-256 hash</strong> of your IP address + date + count</td><td>Preventing unlimited allowances by uninstalling and reinstalling</td></tr>
+      <tr><td>Global counter</td><td>Date + total queries served to all users that day</td><td>Daily cost ceiling</td></tr>
+      <tr><td>Premium interest</td><td>SHA-256 hash of your installation identifier + date — <strong>only if you press the button</strong></td><td>Counting whether there is interest in a paid version</td></tr>
+    </table>
+    <p><strong>Not stored:</strong> your messages, your screenshots, extracted text, your documents, your <strong>raw IP address</strong>, your raw installation identifier, your email/name/contact details. None of these exist in our database.</p>
+    <p>The <strong>installation identifier</strong> is a <strong>random number</strong> generated on your device the first time the app runs. It is not derived from your hardware, your Windows or Microsoft account, or any personal information, and cannot be traced back to you.</p>
+    <p><strong>The moment you enter your own key, our gateway is out of the loop</strong> — requests go directly to the provider you chose and none of the counters above are incremented.</p>
+    <p><strong>The "I'm interested in Premium" button does not purchase anything</strong>, does not ask for payment or contact details, and does not enable anyone to contact you. All it does is add one row to the counter above.</p>
+
+    <h2>4. Third-party services</h2>
+    <p>Some features require the internet and send data to third-party services. <strong>When you use your own key, this data goes directly to the provider you authorized and does not pass through our servers.</strong> In free trial mode the AI request passes through our gateway (section 3).</p>
     <table>
       <tr><th>Feature</th><th>Data sent</th><th>Recipient</th></tr>
-      <tr><td>AI interpretation/chat</td><td>Text extracted from the screen via OCR, the messages you type, and <strong>when visual understanding is on (e.g. Gemini, OpenAI) the screenshot image itself</strong></td><td>The provider you choose in Settings (Google Gemini, DeepSeek, OpenAI, Groq, OpenRouter, or an OpenAI-compatible API)</td></tr>
+      <tr><td>AI interpretation/chat</td><td>Text extracted from the screen via OCR, the messages you type, and <strong>when visual understanding is on (e.g. Gemini, OpenAI) the screenshot image itself</strong></td><td>The provider you choose in Settings (Google Gemini, DeepSeek, OpenAI, Groq, OpenRouter, or an OpenAI-compatible API). In trial mode: Hidroteknik gateway → Google Gemini.</td></tr>
       <tr><td>Document attachment</td><td>Content extracted from PDF/Excel/Word/text/image files you attach. <strong>Scanned (text-less) PDFs are sent directly to Google Gemini to be converted to text.</strong></td><td>Your chosen AI provider / Google Gemini for scanned PDFs</td></tr>
       <tr><td>Text-to-speech (TTS)</td><td>The text to be read aloud</td><td>Microsoft (Edge neural voice service)</td></tr>
       <tr><td>Text recognition (OCR)</td><td>—</td><td>Local on your device; only language data is downloaded on first run</td></tr>
     </table>
-    <div class="note"><strong>Important:</strong> When you select a model that supports visual understanding (vision), e.g. Google Gemini or OpenAI, the <strong>image</strong> of the screen region you selected is also sent to that provider. If you choose a text-only provider (e.g. DeepSeek), no image is sent — only the text extracted via OCR. Whatever data is sent goes to <strong>the provider you chose, using your own API key</strong>, and is subject to that provider's privacy policy. Your data is never sent to or stored on Hidroteknik's servers.</div>
+    <div class="note"><strong>Important:</strong> When a model that supports visual understanding (vision) is used — e.g. Google Gemini or OpenAI, including in free trial mode — the <strong>image</strong> of the screen region you selected is also sent to the provider. If you choose a text-only provider (e.g. DeepSeek), no image is sent — only the text extracted via OCR. Whatever data is sent is subject to that provider's privacy policy.</div>
 
-    <h2>4. Children's privacy</h2>
+    <h2>5. Children's privacy</h2>
     <p>AIShot is not directed at children under 13 and does not knowingly collect data from children.</p>
 
-    <h2>5. Data security</h2>
-    <p>Your API key is protected by OS-level encryption. Avoid capturing screens containing sensitive/personal information, as the extracted text and (if visual understanding is on) the screenshot will be sent to your chosen provider. For sensitive screens you can turn off visual understanding and use a text-only provider.</p>
+    <h2>6. Data security</h2>
+    <p>Your API key is protected by OS-level encryption. All network traffic is carried over HTTPS. <strong>Avoid capturing screens containing sensitive/personal information</strong>, as the extracted text and (if visual understanding is on) the screenshot will be sent to the AI provider. For sensitive screens you can turn off visual understanding and use a text-only provider.</p>
 
-    <h2>6. Changes</h2>
+    <h2>7. Changes</h2>
     <p>This policy may be updated. The current version is always published at this address and is accessible from the <strong>About</strong> section in the app.</p>
 
-    <h2>7. Contact</h2>
+    <h2>8. Contact</h2>
     <p>For questions: <a href="mailto:aishot@hidroteknik.com.tr">aishot@hidroteknik.com.tr</a></p>
   </section>
 
